@@ -1,0 +1,76 @@
+.layout {
+
+  // * Variables
+  $transition:
+    background-color .30s;
+
+  background-color: $colorBackgroundLayout;
+  margin-bottom: .4em;
+
+  // ? Set layout box-shadow
+  @include setBoxShadow(0 0px 32px rgba(0, 0, 0, 0.07));
+
+  // ? Layout Item styles
+  &--item {
+
+    // ? Flex
+    display: inline-flex;
+    flex-direction: row;
+    align-items: stretch;
+    align-content: stretch;
+
+    // ? Other styles
+    padding: 1em 1.5em;
+    height: 100%;
+    width: 100%;
+
+    @include setTransition($transition);
+
+    // ? Item title
+    h5 {
+      color: #212121;
+      font-weight: 500;
+      margin: 0;
+      padding-bottom: .2em;
+    }
+
+    // ? Item summary
+    p {
+      color: #757575;
+      margin: 0;
+    }
+
+    // ? Item icon
+    &_icon {
+
+      // ? Flex
+      align-self: flex-start;
+
+      // ? Other Styles
+      order: -1;
+      margin-right: 1em;
+
+    }
+
+    // ? Clickable item styles
+    &[clickable] {
+
+      cursor: pointer;
+
+      &:active {
+        background-color: $colorDivider;
+      }
+
+    }
+
+    // ? Category styles
+    &_category {
+      color: $colorAccent;
+      font-weight: 600;
+      padding: 1em 1.5em .4em 1.5em;
+      margin: 0;
+    }
+
+  }
+
+}

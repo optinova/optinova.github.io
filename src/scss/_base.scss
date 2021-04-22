@@ -28,7 +28,13 @@ body {
 
 }
 
-.blink {
+hr {
+  border: .5px solid $colorDivider;
+  background: $colorDivider;
+  margin: 0;
+}
+
+.anim--blink {
   -webkit-animation: blink 800ms infinite;
           animation: blink 800ms infinite;
 }

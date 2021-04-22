@@ -21,11 +21,39 @@
   </head>
   <body>
 
-    <div class="container">
-      <div class="row">
-        <div class="col-12 text-align_center">
-          <h1 class="text-size68" disabled><span class="blink">...</span></h1><br>
-          <p disabled>всё еще в разработке</p>
+    <div class="toolbar">
+      <div class="toolbar--item action" hidden>
+        <i class="material-icons notranslate" translate="no">code</i>
+      </div>
+      <div class="toolbar--item title">
+        Главная
+      </div>
+    </div>
+
+    <div class="layout">
+      <p class="layout--item_category">Основное</p>
+      <div class="layout--item" disabled>
+        <div class="layout--item_content">
+          <h5>Статус разработки</h5>
+          <p>На данный момент OptiNova находится на стадии прототипирования и каких-либо готовых APK-файлов для установки <b>не было выпущено</b></p>
+        </div>
+      </div>
+      <div class="layout--item">
+        <div class="layout--item_content">
+          <p class="text--warn">Сайт всё еще в разработке (как и модификация), а поэтому возможны какие-либо недочёты!</p>
+        </div>
+      </div>
+      <p class="layout--item_category">Ссылки</p>
+      <div class="layout--item" clickable onclick="location.href='https://t.me/optinova'">
+        <div class="layout--item_content">
+          <h5>Telegram</h5>
+          <p>Подпишитесь на официальный канал @optinova в Telegram, в котором публикуются все новости касательно проекта</p>
+        </div>
+      </div>
+      <hr>
+      <div class="layout--item" clickable onclick="location.href='https://github.com/optinova'">
+        <div class="layout--item_content">
+          <h5>Github</h5>
         </div>
       </div>
     </div>

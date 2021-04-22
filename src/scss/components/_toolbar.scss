@@ -1,0 +1,45 @@
+.toolbar {
+
+  background-color: $colorSurface;
+  color: white;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  flex-flow: row wrap;
+  justify-content: flex-start;
+  align-items: center;
+  padding: 0.54em 0.55em;
+  width: 100vw;
+  height: 4em;
+  z-index: 1000;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+
+  @include setBoxShadow(0 8px 10px rgba(0, 0, 0, 0.253));
+
+  &--item {
+
+    display: inline;
+
+  }
+
+  .title {
+    margin-left: 0.6em;
+    font-size: 1.35rem;
+    align-self: center;
+    font-weight: 600;
+  }
+
+  .action {
+    cursor: pointer;
+    width: 3em;
+    height: 3em;
+  }
+
+  .action > i {
+    cursor: pointer;
+    margin-top: 0.46em;
+    margin-left: 0.5em;
+  }
+}

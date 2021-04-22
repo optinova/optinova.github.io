@@ -1,6 +1,7 @@
 .toolbar {
 
   background-color: $colorSurface;
+  border-bottom: 1px solid darken($colorSurface, 10%);
   color: white;
   display: flex;
   flex-direction: row;

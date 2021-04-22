@@ -328,6 +328,7 @@ hr {
 
 .toolbar {
   background-color: #253239;
+  border-bottom: 1px solid #11171a;
   color: white;
   display: flex;
   flex-direction: row;

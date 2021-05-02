@@ -1,46 +1,76 @@
 .toolbar {
 
+  $transition:
+    background-color .30s;
+
   background-color: $colorSurface;
-  border-bottom: 1px solid darken($colorSurface, 10%);
+  //border-bottom: 1px solid darken($colorSurface, 10%);
   color: white;
-  display: flex;
-  flex-direction: row;
-  flex-wrap: nowrap;
-  flex-flow: row wrap;
-  justify-content: flex-start;
-  align-items: center;
-  padding: 0.54em 0.55em;
   width: 100vw;
-  height: 4em;
+  //height: 4em;
   z-index: 1000;
   position: -webkit-sticky;
   position: sticky;
   top: 0;
 
-  @include setBoxShadow(0 8px 10px rgba(0, 0, 0, 0.253));
+  &-tabs {
 
-  &--item {
+    display: inline-block;
+		width: 100%;
+    margin-bottom: -3px;
+    margin-top: 0;
+    padding: 0;
+    overflow-y: scroll;
 
-    display: inline;
+    &::-webkit-scrollbar {
+      display: none;
+    }
+
+    &--tab {
+
+      box-sizing: border-box;
+      display: table-cell;
+      padding: .8em 1.5em;
+      margin: 0;
+      text-align: center;
+		  white-space: nowrap;
+      cursor: pointer;
+      width: fit-content;
+
+      @include setTransition($transition);
+
+      &:active {
+        background-color: $colorHover;
+      }
+
+      &.current {
+        border-bottom: 3px solid $colorAccent;
+      }
+
+    }
 
   }
 
-  .title {
-    margin-left: 0.6em;
-    font-size: 1.35rem;
-    align-self: center;
-    font-weight: 600;
+  @include setBoxShadow(0 5px 5px rgba(0, 0, 0, 0.253));
+
+  &--container {
+
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
+    flex-flow: row wrap;
+    justify-content: flex-start;
+    align-items: center;
+    padding: 1em 1.5em 1em 1.5em;
+
+    &--item { display: inline; }
+
+    .title {
+      font-size: 1.35rem;
+      align-self: center;
+      font-weight: 600;
+    }
+
   }
 
-  .action {
-    cursor: pointer;
-    width: 3em;
-    height: 3em;
-  }
-
-  .action > i {
-    cursor: pointer;
-    margin-top: 0.46em;
-    margin-left: 0.5em;
-  }
 }

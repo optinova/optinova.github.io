@@ -1,5 +1,4 @@
 @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,600;0,700;0,800;1,300;1,400;1,600;1,700;1,800&display=swap");
-@import url(https://fonts.googleapis.com/icon?family=Material+Icons);
 *,
 *::before,
 *::after {
@@ -226,6 +225,9 @@ body {
   line-height: 1.15;
   scrollbar-width: thin;
   scrollbar-color: #818181 #ffffff;
+  opacity: 0;
+  -webkit-transition: opacity 0.3s;
+  transition: opacity 0.3s;
   -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
@@ -276,11 +278,24 @@ hr {
 .layout {
   background-color: #ffffff;
   margin-bottom: 0.4em;
+  display: none !important;
+  -webkit-animation: fadein 0.3s;
+  /* Safari, Chrome and Opera > 12.1 */
+  -moz-animation: fadein 0.3s;
+  /* Firefox < 16 */
+  -ms-animation: fadein 0.3s;
+  /* Internet Explorer */
+  -o-animation: fadein 0.3s;
+  /* Opera < 12.1 */
+  animation: fadein 0.3s;
   -webkit-box-shadow: 0 0px 32px rgba(0, 0, 0, 0.07);
   /* ? Safari, Chrome, iOS */
   -moz-box-shadow: 0 0px 32px rgba(0, 0, 0, 0.07);
   /* ? Firefox */
   box-shadow: 0 0px 32px rgba(0, 0, 0, 0.07);
+}
+.layout.current {
+  display: block !important;
 }
 .layout--item {
   display: inline-flex;
@@ -326,47 +341,105 @@ hr {
   margin: 0;
 }
 
+@keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 .toolbar {
   background-color: #253239;
-  border-bottom: 1px solid #11171a;
   color: white;
+  width: 100vw;
+  z-index: 1000;
+  position: -webkit-sticky;
+  position: sticky;
+  top: 0;
+  -webkit-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.253);
+  /* ? Safari, Chrome, iOS */
+  -moz-box-shadow: 0 5px 5px rgba(0, 0, 0, 0.253);
+  /* ? Firefox */
+  box-shadow: 0 5px 5px rgba(0, 0, 0, 0.253);
+}
+.toolbar-tabs {
+  display: inline-block;
+  width: 100%;
+  margin-bottom: -3px;
+  margin-top: 0;
+  padding: 0;
+  overflow-y: scroll;
+}
+.toolbar-tabs::-webkit-scrollbar {
+  display: none;
+}
+.toolbar-tabs--tab {
+  box-sizing: border-box;
+  display: table-cell;
+  padding: 0.8em 1.5em;
+  margin: 0;
+  text-align: center;
+  white-space: nowrap;
+  cursor: pointer;
+  width: fit-content;
+  -webkit-transition: background-color 0.3s;
+  /* ? Safari, Chrome, iOS */
+  -moz-transition: background-color 0.3s;
+  /* ? Firefox */
+  -o-transition: background-color 0.3s;
+  /* ? Opera */
+  transition: background-color 0.3s;
+}
+.toolbar-tabs--tab:active {
+  background-color: #ffffff23;
+}
+.toolbar-tabs--tab.current {
+  border-bottom: 3px solid #059381;
+}
+.toolbar--container {
   display: flex;
   flex-direction: row;
   flex-wrap: nowrap;
   flex-flow: row wrap;
   justify-content: flex-start;
   align-items: center;
-  padding: 0.54em 0.55em;
-  width: 100vw;
-  height: 4em;
-  z-index: 1000;
-  position: -webkit-sticky;
-  position: sticky;
-  top: 0;
-  -webkit-box-shadow: 0 8px 10px rgba(0, 0, 0, 0.253);
-  /* ? Safari, Chrome, iOS */
-  -moz-box-shadow: 0 8px 10px rgba(0, 0, 0, 0.253);
-  /* ? Firefox */
-  box-shadow: 0 8px 10px rgba(0, 0, 0, 0.253);
+  padding: 1em 1.5em 1em 1.5em;
 }
-.toolbar--item {
+.toolbar--container--item {
   display: inline;
 }
-.toolbar .title {
-  margin-left: 0.6em;
+.toolbar--container .title {
   font-size: 1.35rem;
   align-self: center;
   font-weight: 600;
-}
-.toolbar .action {
-  cursor: pointer;
-  width: 3em;
-  height: 3em;
-}
-.toolbar .action > i {
-  cursor: pointer;
-  margin-top: 0.46em;
-  margin-left: 0.5em;
 }
 
 h1, h2, h3, h4, h5, h6 {

@@ -6,9 +6,19 @@
 
   background-color: $colorBackgroundLayout;
   margin-bottom: .4em;
+  display: none !important;
+
+  -webkit-animation: fadein .30s; /* Safari, Chrome and Opera > 12.1 */
+     -moz-animation: fadein .30s; /* Firefox < 16 */
+      -ms-animation: fadein .30s; /* Internet Explorer */
+       -o-animation: fadein .30s; /* Opera < 12.1 */
+          animation: fadein .30s;
 
   // ? Set layout box-shadow
   @include setBoxShadow(0 0px 32px rgba(0, 0, 0, 0.07));
+
+  // ? Set visible content
+  &.current { display: block !important; }
 
   // ? Layout Item styles
   &--item {
@@ -73,4 +83,29 @@
 
   }
 
+
+
+}
+
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Firefox < 16 */
+@-moz-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Safari, Chrome and Opera > 12.1 */
+@-webkit-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+/* Internet Explorer */
+@-ms-keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
 }

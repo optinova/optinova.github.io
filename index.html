@@ -17,20 +17,25 @@
     <link rel="icon" type="image/png" sizes="16x16" href="https://rawcdn.githack.com/rx1310/rx1310.github.io/09d5caa04edc5171099849d1108cd51d117c664d/assets/_favicon/favicon-16x16.png">
     <link rel="manifest" href="https://rawcdn.githack.com/rx1310/rx1310.github.io/09d5caa04edc5171099849d1108cd51d117c664d/assets/_favicon/site.webmanifest">
     <link rel="stylesheet" href="build/css/main.css">
-    <title>Главная | OptiNova</title>
+    <title>OptiNova</title>
   </head>
-  <body>
+  <body onload="document.body.style.opacity='1'">
 
     <div class="toolbar">
-      <div class="toolbar--item action" hidden>
-        <i class="material-icons notranslate" translate="no">code</i>
+      <div class="toolbar--container">
+        <div class="toolbar--item title">
+          OptiNova
+        </div>
       </div>
-      <div class="toolbar--item title">
-        Главная
-      </div>
+      <ul class="toolbar-tabs nav-tab">
+        <li class="toolbar-tabs--tab" data-tab="layout-1">Главная</li>
+        <li class="toolbar-tabs--tab" data-tab="layout-2">Загрузка</li>
+        <li class="toolbar-tabs--tab" data-tab="layout-3">Информация</li>
+        <li class="toolbar-tabs--tab" data-tab="layout-4" disabled>Прочее</li>
+      </ul>
     </div>
 
-    <div class="layout">
+    <div class="layout" id="layout-1">
       <p class="layout--item_category">Основное</p>
       <div class="layout--item" disabled>
         <div class="layout--item_content">
@@ -43,6 +48,27 @@
           <p class="text--warn">Сайт всё еще в разработке (как и модификация), а поэтому возможны какие-либо недочёты!</p>
         </div>
       </div>
+    </div>
+
+    <div class="layout" id="layout-2">
+      <p class="layout--item_category">Стабильная версия</p>
+      <div class="layout--item" disabled>
+        <div class="layout--item_content">
+          <h5>Нет файлов</h5>
+          <p>В разработке...</p>
+        </div>
+      </div>
+      <hr>
+      <p class="layout--item_category">Прочие версии</p>
+      <div class="layout--item" disabled>
+        <div class="layout--item_content">
+          <h5>Нет файлов</h5>
+          <p>В разработке...</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="layout" id="layout-3">
       <p class="layout--item_category">Ссылки</p>
       <div class="layout--item" clickable onclick="location.href='https://t.me/optinova'">
         <div class="layout--item_content">
@@ -57,6 +83,8 @@
         </div>
       </div>
     </div>
+
+    <script src="src/js/main.js" async></script>
 
   </body>
 </html>
